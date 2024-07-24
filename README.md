@@ -13,3 +13,6 @@ Contains analysis notebooks for biosignals, follow the READMEs for each director
 ## Guides
 
 - [Time Series Preprocessing](./data-sci-guide.ipynb)
+
+## Datasets
+- [Dataset Index](./datasets/dataset_index.md)
