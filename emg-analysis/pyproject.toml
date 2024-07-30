@@ -16,6 +16,8 @@ matplotlib = "^3.9.1"
 scipy = "^1.14.0"
 numpy = "^2.0.1"
 mercury = "^2.4.3"
+libemg = "^0.0.4"
+tk-tools = "^0.16.0"
 
 
 [build-system]
