@@ -1,7 +1,6 @@
 # %%
 import os
 from sys import path
-path.append("../../utils")
 import pydelsys
 import matplotlib.pyplot as plt
 import numpy as np
@@ -114,3 +113,4 @@ print(mad)
 print(rmad)
 
 # %%
+
