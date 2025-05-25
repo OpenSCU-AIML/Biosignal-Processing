@@ -3460,6 +3460,21 @@ pure-eval = "*"
 tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
+name = "tensorly"
+version = "0.8.1"
+description = "Tensor learning in Python."
+optional = false
+python-versions = "*"
+files = [
+    {file = "tensorly-0.8.1-py3-none-any.whl", hash = "sha256:08988dbc5e433c3f255d0e00855f99a613fe273d50a1627b7e82b03ff2a6da9a"},
+    {file = "tensorly-0.8.1.tar.gz", hash = "sha256:cf78e4ffe612feca3510214002845c6831b267b1f2c1181154d41430310b237d"},
+]
+
+[package.dependencies]
+numpy = "*"
+scipy = "*"
+
+[[package]]
 name = "threadpoolctl"
 version = "3.5.0"
 description = "threadpoolctl"
@@ -3940,4 +3955,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "376edd15f1b6dd7d7a5ca6a45fc0954901f710918dc990617f68aa0b13e87f68"
+content-hash = "52d503b1a38e1de5348778d944275643cf80f0268e18bc9bf22a5ce4ee6343e3"

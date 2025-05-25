@@ -1,0 +1,72 @@
+This library is designed to be easily expandable. You can add more methods to each class or create new classes for additional functionality.
+
+Load your data into a numpy array.
+Create an EMGSignal object with your data and sampling rate.
+
+`EMGSignal`: A basic class to represent an EMG signal with its data and sampling rate.
+`Visualizer`: Contains methods for plotting EMG signals in time and frequency domains.
+`Preprocessor`: Includes methods for applying filters (bandpass and notch) to the EMG signal.
+`Transformer`: Provides methods for Fourier transforms and Short-Time Fourier Transform (STFT).
+`Convolver`: Includes methods for convolution and correlation operations.
+`Sorter`: Contains methods for identifying specific points in the EMG signal, such as threshold crossings and peak detection.
+`Clusterer`: Provides a method for clustering EMG data using K-means.
+
+`PCAAnalyzer`: Performs Principal Component Analysis on multi-channel EMG signals.
+
+`fit`: Fits the PCA model to the data.
+transform: Transforms the data to its principal components.
+`plot_explained_variance`: Visualizes the explained variance ratio.
+
+
+`ICAAnalyzer`: Performs Independent Component Analysis on multi-channel EMG signals.
+
+`fit`: Fits the ICA model to the data.
+transform: Transforms the data to its independent components.
+
+`WaveletTransformer`: Performs Discrete Wavelet Transform on EMG signals.
+
+`decompose`: Decomposes the signal into wavelet coefficients.
+`reconstruct`: Reconstructs the signal from wavelet coefficients.
+`denoise`: Applies wavelet denoising to the signal.
+plot_coefficients: Visualizes the wavelet coefficients.
+
+
+`LaplacianFilter`: Applies Laplacian filtering to EMG signals.
+
+`apply_1d`: Applies a 1D Laplacian filter to a single EMG signal.
+`apply_2d`: Applies a 2D Laplacian filter to multi-channel EMG signals.
+
+
+
+```python
+# Assuming you have loaded your EMG data into emg_signals
+your_emg_data = np.load('your_emg_data.npy')
+sampling_rate = 1000  # Replace with your actual sampling rate
+
+# Create EMGSignal object
+your_emg_signal = EMGSignal(your_emg_data, sampling_rate)
+
+# Process your signal
+filtered_signal = Preprocessor.bandpass_filter(your_emg_signal, lowcut=10, highcut=450)
+Visualizer.plot_time_domain(filtered_signal)
+
+# Perform PCA
+pca_analyzer = PCAAnalyzer(n_components=5)
+pca_analyzer.fit(emg_signals)
+pca_components = pca_analyzer.transform(emg_signals)
+pca_analyzer.plot_explained_variance()
+
+# Perform ICA
+ica_analyzer = ICAAnalyzer(n_components=5)
+ica_analyzer.fit(emg_signals)
+ica_components = ica_analyzer.transform(emg_signals)
+
+# Apply Wavelet Transform
+wt = WaveletTransformer(wavelet='db4', level=5)
+denoised_signals = [wt.denoise(signal) for signal in emg_signals]
+
+# Apply Laplacian Filter
+laplacian_filtered = LaplacianFilter.apply_2d(emg_signals)
+
+# Visualize or further process the results as needed
+```
